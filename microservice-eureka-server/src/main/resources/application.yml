@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8761
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:${server.port}/eureka/
+      #上线测试需要使用以下配置Docker，
+      defaultZone: http://eureka-server:${server.port}/eureka/
+    register-with-eureka: false
+    fetch-registry: false

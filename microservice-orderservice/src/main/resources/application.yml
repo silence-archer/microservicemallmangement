@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://192.168.84.131:3306/study
+    #集成docker使用
+    url: jdbc:mysql://192.168.84.131:3307/study
+    username: root
+    password: 930927
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: order-service
+server:
+  port: 7900
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: gateway-zuul
+server:
+  port: 8050
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+      #上线测试需要使用以下配置，Docker
+      defaultZone: http://eureka-server:8761/eureka/
+zuul:
+  ignored-services: '*'
+  routes:
+    user-service:
+      path: /user-service/**
+      serviceId: user-service
+    order-service:
+      path: /order-service/**
+      serviceId: order-service
+#存在超时问题
